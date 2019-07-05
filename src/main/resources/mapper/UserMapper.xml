@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.User">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="userName" jdbcType="VARCHAR" property="userName" />
+        <result column="address" jdbcType="VARCHAR" property="address" />
+        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    </resultMap>
+
+    <resultMap id="StrResultMap" type="com.example.demo.entity.StringEncode">
+        <result column="id" jdbcType="INTEGER" property="id" />
+        <result column="password" jdbcType="VARCHAR" property="password" />
+    </resultMap>
+
+    <select id="getUserInfo"  resultType="com.example.demo.entity.User">
+        SELECT * FROM user where id = #{id};
+    </select>
+
+    <select id="getAllUsers"  resultType="com.example.demo.entity.User">
+          select
+          id,
+          userName,
+          address,
+          mobile
+        from
+          user
+    </select>
+    <!--插入字符串（自增长）-->
+    <insert id="addStringEncode" useGeneratedKeys="true" keyProperty="id"
+            parameterType="com.example.demo.entity.StringEncode">
+        insert into stringencode (password) values (#{password})
+    </insert>
+    <!--查詢所有字符串-->
+    <select id="queryStringEncode"  resultType="com.example.demo.entity.StringEncode">
+          select
+          id,
+          password
+        from
+          stringencode
+    </select>
+</mapper>
