@@ -13,6 +13,7 @@
     <resultMap id="StrResultMap" type="com.example.demo.entity.StringEncode">
         <result column="id" jdbcType="INTEGER" property="id" />
         <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="ciphertext" jdbcType="VARCHAR" property="ciphertext" />
     </resultMap>
 
     <select id="getUserInfo"  resultType="com.example.demo.entity.User">
@@ -31,13 +32,14 @@
     <!--插入字符串（自增长）-->
     <insert id="addStringEncode" useGeneratedKeys="true" keyProperty="id"
             parameterType="com.example.demo.entity.StringEncode">
-        insert into stringencode (password) values (#{password})
+        insert into stringencode (password,ciphertext) values (#{password},#{ciphertext})
     </insert>
     <!--查詢所有字符串-->
     <select id="queryStringEncode"  resultType="com.example.demo.entity.StringEncode">
           select
           id,
-          password
+          password,
+          ciphertext
         from
           stringencode
     </select>

@@ -9,6 +9,15 @@ public class StringEncode {
 
     private Integer id;
     private String password;
+    private String ciphertext;
+
+    public String getCiphertext() {
+        return ciphertext;
+    }
+
+    public void setCiphertext(String ciphertext) {
+        this.ciphertext = ciphertext;
+    }
 
     public Integer getId() {
         return id;
