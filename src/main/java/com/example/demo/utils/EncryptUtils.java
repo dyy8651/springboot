@@ -1,16 +1,15 @@
-package com.example.demo;
+package com.example.demo.utils;
 
 
-import java.security.Key;
-import java.security.spec.AlgorithmParameterSpec;
+import sun.misc.BASE64Decoder;
+import sun.misc.BASE64Encoder;
 
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESKeySpec;
 import javax.crypto.spec.IvParameterSpec;
-
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import java.security.Key;
+import java.security.spec.AlgorithmParameterSpec;
 
 
 /**
@@ -42,7 +41,7 @@ public class EncryptUtils {
 
     /**
      * 加密
-     * @author ershuai
+     * @author frank
      * @date 2017年4月19日 上午9:40:53
      * @param data
      * @return
@@ -58,7 +57,7 @@ public class EncryptUtils {
 
     /**
      * 解密
-     * @author ershuai
+     * @author frank
      * @date 2017年4月19日 上午9:41:01
      * @param data
      * @return
